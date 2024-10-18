@@ -19,8 +19,7 @@ const EventList = () => {
       ? data?.events
       : data?.events.filter((event) => event.type === type)) || [];
 
-  console.log("Type selected:", type);
-  console.log("Filtered events:", filteredEvents);
+  
 
   // Pagination: filtrer les événements par page
   const paginatedEvents = filteredEvents.slice(
