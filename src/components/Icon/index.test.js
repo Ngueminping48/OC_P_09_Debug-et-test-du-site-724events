@@ -16,3 +16,16 @@ describe("Icon component", () => {
     });
 })
 
+describe("When an icon is created with name facebook", () => {
+    it("the icon contains this path hash value bbea4c9e40773b969fdb6e406059f853", () => {
+        render(<Icon name="facebook" />); // Rend le composant Icon avec le nom "facebook"
+
+        // Récupère l'attribut 'd' (le chemin SVG) de l'icône rendue
+        const pathValue = screen.getByTestId("icon").getAttribute('d');
+        
+        // Génère un hash MD5 du chemin et vérifie s'il correspond à la valeur attendue
+        expect(md5(pathValue)).toEqual('bbea4c9e40773b969fdb6e406059f853');
+    });
+});
+
+

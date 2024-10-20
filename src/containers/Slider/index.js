@@ -42,6 +42,7 @@ const Slider = () => {
   // window.removeEventListener('keydown', handleKeyDown); // Nettoie l'écouteur d'événements
   // };
   // }, []);
+  // Si activé, l'utilisateur pourrait appuyer sur la barre d'espace pour mettre en pause ou reprendre le défilement automatique des diapositives.
 
   const handleRadioChange = (radioIdx) => {
     setIndex(radioIdx);
