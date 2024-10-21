@@ -15,10 +15,6 @@ import { useData } from "../../contexts/DataContext";
 const Page = () => {
   const { data } = useData();
   const last = data ? data.events[data.events.length - 1] : null;
-  
-
-  // Les 3 lignes au dessus remplacent celle en dessous pour afficher le dernier event
-  // const { last } = useData(); // Dernier event à afficher
   return (
     <>
       <header>

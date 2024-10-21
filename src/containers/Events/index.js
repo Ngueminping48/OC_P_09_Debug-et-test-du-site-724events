@@ -19,15 +19,13 @@ const EventList = () => {
       ? data?.events
       : data?.events.filter((event) => event.type === type)) || [];
 
-  
-
   // Pagination: filtrer les événements par page
   const paginatedEvents = filteredEvents.slice(
     (currentPage - 1) * PER_PAGE,
     currentPage * PER_PAGE
   );
 
-  // Trier les événements par date croissante et par ordre alphabétique
+  // Trier les événements par date
   const sortedEvents = paginatedEvents.sort((evtA, evtB) =>
     new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
   );
@@ -37,7 +35,7 @@ const EventList = () => {
     setType(evtType);
   };
 
-  const pageNumber = Math.ceil(filteredEvents.length / PER_PAGE); // Utiliser Math.ceil() pour arrondir
+  const pageNumber = Math.ceil(filteredEvents.length / PER_PAGE); // Utiliser Math.ceil()
 
   const typeList = Array.from(new Set(data?.events.map((event) => event.type)));
 
@@ -69,11 +67,16 @@ const EventList = () => {
             ))}
           </div>
           <div className="Pagination">
-            {Array.from({ length: pageNumber }).map((_, n) => (
-              <a key={n} href="#events" onClick={() => setCurrentPage(n + 1)}>
-                {n + 1}
-              </a>
-            ))}
+            {pageNumber > 0 &&
+              Array.from({ length: pageNumber }).map((_, index) => (
+                <a
+                  key={index}
+                  href="#events"
+                  onClick={() => setCurrentPage(index + 1)}
+                >
+                  {index + 1}
+                </a>
+              ))}
           </div>
         </>
       )}

@@ -7,8 +7,7 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  // const [paused, setPaused] = useState(false); // État pour savoir si le slider est en pause
-
+  
   const byDateDesc = useMemo(() => 
     (data?.focus?.sort((evtA, evtB) =>
       new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
@@ -18,7 +17,7 @@ const Slider = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // if (!paused) { // Vérifie si le slider n'est pas en pause et si il n'y a pas de défilement automatique
+     
       setIndex((prevIndex) =>
         prevIndex < byDateDesc.length - 1 ? prevIndex + 1 : 0
       );
