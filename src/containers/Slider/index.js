@@ -25,7 +25,7 @@ const Slider = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [{/* paused */} ,byDateDesc]);
-
+  
   //  Gérer l'appui sur la barre d'espace pour mettre le slider en pause
   // useEffect(() => {
   // const handleKeyDown = (event) => {
@@ -74,6 +74,7 @@ const Slider = () => {
                   name="radio-button"
                   checked={index === radioIdx}
                   onChange={() => handleRadioChange(radioIdx)}
+                  id={`${event.id || `${event.title}-${radioIdx}`}`}
                 />
               ))}
             </div>

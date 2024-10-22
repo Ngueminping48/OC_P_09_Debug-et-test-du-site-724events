@@ -68,13 +68,14 @@ const EventList = () => {
           </div>
           <div className="Pagination">
             {pageNumber > 0 &&
-              Array.from({ length: pageNumber }).map((_, index) => (
+              Array.from(Array(pageNumber).keys()).map((page) => (
                 <a
-                  key={index}
+                  key={page}
+                  className={currentPage === page + 1 ? "active" : ""}
                   href="#events"
-                  onClick={() => setCurrentPage(index + 1)}
+                  onClick={() => setCurrentPage(page + 1)}
                 >
-                  {index + 1}
+                  {page + 1}
                 </a>
               ))}
           </div>
