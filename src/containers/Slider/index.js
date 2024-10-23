@@ -71,10 +71,11 @@ const Slider = () => {
                 <input
                   key={`${event.id || `${event.title}-${radioIdx}`}`}
                   type="radio"
-                  name="radio-button"
+                  name={event.title}
                   checked={index === radioIdx}
                   onChange={() => handleRadioChange(radioIdx)}
                   id={`${event.id || `${event.title}-${radioIdx}`}`}
+            
                 />
               ))}
             </div>
